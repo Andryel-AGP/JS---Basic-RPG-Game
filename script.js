@@ -172,7 +172,6 @@ function goFight() {
   monsterHealthText.innerText = monsterHealth;
 }
 
-// Trabalhando nesse setor =function attack=
 function attack() {
   text.innerText = "The " + monsters[fighting].name + " attacks.";
   text.innerText += " You attack it with your " + weapons[currentWeapon].name + ".";
@@ -183,7 +182,11 @@ function attack() {
   if (health <= 0) {
     lose();
   } else if (monsterHealth <= 0) {
-    defeatMonster();
+    if (fighting === 2) {
+      winGame()
+    } else {
+      defeatMonster();
+    }
   }
 }
 
